@@ -12,8 +12,6 @@ setTimeout(() => {
     isUp()
 }, 100);
 
-
-
 function buildBoard() {
     const mBoard = document.createElement('div');
     const mRow1 = document.createElement('div');
@@ -147,6 +145,7 @@ function reset() {
     score = ['e','e','e','e','e','e','e','e','e']
     rBtn.style.display = 'none';
     turnTrack.textContent = playerturn + ' is up'
+    
     box0.addEventListener('click', box0s)
     box0.addEventListener('click', test)
     box1.addEventListener('click', box1s)
@@ -211,11 +210,46 @@ function setScore() {
 
 function gameWonX() {
     turnTrack.textContent = 'GAMEOVER X WINS'
+    box0.addEventListener('click', box0s)
+    box0.removeEventListener('click', test)
+    box1.removeEventListener('click', box1s)
+    box1.removeEventListener('click', test)
+    box2.removeEventListener('click', box2s)
+    box2.removeEventListener('click', test)
+    box3.removeEventListener('click', box3s)
+    box3.removeEventListener('click', test)
+    box4.removeEventListener('click', box4s)
+    box4.removeEventListener('click', test)
+    box5.removeEventListener('click', box5s)
+    box5.removeEventListener('click', test)
+    box6.removeEventListener('click', box6s)
+    box6.removeEventListener('click', test)
+    box7.removeEventListener('click', box7s)
+    box7.removeEventListener('click', test)
+    box8.removeEventListener('click', box8s)
+    box8.removeEventListener('click', test)
     showReset()
 }
 
 function gameWonO() {
     turnTrack.textContent = 'GAMEOVER O WINS'
+    box0.removeEventListener('click', test)
+    box1.removeEventListener('click', box1s)
+    box1.removeEventListener('click', test)
+    box2.removeEventListener('click', box2s)
+    box2.removeEventListener('click', test)
+    box3.removeEventListener('click', box3s)
+    box3.removeEventListener('click', test)
+    box4.removeEventListener('click', box4s)
+    box4.removeEventListener('click', test)
+    box5.removeEventListener('click', box5s)
+    box5.removeEventListener('click', test)
+    box6.removeEventListener('click', box6s)
+    box6.removeEventListener('click', test)
+    box7.removeEventListener('click', box7s)
+    box7.removeEventListener('click', test)
+    box8.removeEventListener('click', box8s)
+    box8.removeEventListener('click', test)
     showReset()
 }
 
@@ -343,4 +377,16 @@ function box8s() {
         score[8] = 'o';
         return score
     }
+}
+function noClick() {
+        this.removeEventListener('click', test)
+        this.removeEventListener('click', box0s)
+        this.removeEventListener('click', box1s)
+        this.removeEventListener('click', box2s)
+        this.removeEventListener('click', box3s)
+        this.removeEventListener('click', box4s)
+        this.removeEventListener('click', box5s)
+        this.removeEventListener('click', box6s)
+        this.removeEventListener('click', box7s)
+        this.removeEventListener('click', box8s)
 }
