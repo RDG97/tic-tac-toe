@@ -146,6 +146,25 @@ function reset() {
     box8.textContent = ''
     score = ['e','e','e','e','e','e','e','e','e']
     rBtn.style.display = 'none';
+    turnTrack.textContent = playerturn + ' is up'
+    box0.addEventListener('click', box0s)
+    box0.addEventListener('click', test)
+    box1.addEventListener('click', box1s)
+    box1.addEventListener('click', test)
+    box2.addEventListener('click', box2s)
+    box2.addEventListener('click', test)
+    box3.addEventListener('click', box3s)
+    box3.addEventListener('click', test)
+    box4.addEventListener('click', box4s)
+    box4.addEventListener('click', test)
+    box5.addEventListener('click', box5s)
+    box5.addEventListener('click', test)
+    box6.addEventListener('click', box6s)
+    box6.addEventListener('click', test)
+    box7.addEventListener('click', box7s)
+    box7.addEventListener('click', test)
+    box8.addEventListener('click', box8s)
+    box8.addEventListener('click', test)
 }
 
 function isUp() {
@@ -242,8 +261,6 @@ function windConds () {
         gameWonO()
     }
 }
-
-
 
 function box0s() {
     if (playerturn === 'x') {
