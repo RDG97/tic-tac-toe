@@ -1,0 +1,10 @@
+#board {
+    height: 275px;
+    width: 275px;
+}
+.boxxy {
+    height: 55px;
+    width: 55px;
+    max-height: 55px;
+    max-width: 55px;
+}
