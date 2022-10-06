@@ -1,90 +1,39 @@
+//declare some global variables
 let playerturn = 'x';
 let score = ['e','e','e','e','e','e','e','e','e']
 const app = document.getElementById('app')
 
+//exciting isnt it?
 function init() {
-    buildBoard();   
+    buildBoard2();   
 }
 
 init();
-
+// i used a settimeout so that this would run after the board is built
 setTimeout(() => {
     isUp()
 }, 100);
 
-function buildBoard() {
-    const mBoard = document.createElement('div');
-    const mRow1 = document.createElement('div');
-    const mRow2 = document.createElement('div');
-    const mRow3 = document.createElement('div');
-    const mBox0 = document.createElement('div');
-    const mBox1 = document.createElement('div');
-    const mBox2 = document.createElement('div');
-    const mBox3 = document.createElement('div');
-    const mBox4 = document.createElement('div');
-    const mBox5 = document.createElement('div');
-    const mBox6 = document.createElement('div');
-    const mBox7 = document.createElement('div');
-    const mBox8 = document.createElement('div');
-    const mTurnTrack = document.createElement('div')
-    mBoard.setAttribute('class','container border')
-    mBoard.setAttribute('id','board')
-    mRow1.setAttribute('class','d-flex flex-row bg-primary flex-fill text-center p-1 w-auto h-auto')
-    mRow2.setAttribute('class','d-flex flex-row bg-primary flex-fill text-center p-1 w-auto h-auto')
-    mRow3.setAttribute('class','d-flex flex-row bg-primary flex-fill text-center p-1 w-auto h-auto')
-    mRow1.setAttribute('id','row1')
-    mRow2.setAttribute('id','row2')
-    mRow3.setAttribute('id','row3')
-    mBox0.setAttribute('class','p-2 bg-danger flex-fill p-4 border border-dark')
-    mBox1.setAttribute('class','p-2 bg-danger flex-fill p-4 border border-dark')
-    mBox2.setAttribute('class','p-2 bg-danger flex-fill p-4 border border-dark')
-    mBox3.setAttribute('class','p-2 bg-danger flex-fill p-4 border border-dark')
-    mBox4.setAttribute('class','p-2 bg-danger flex-fill p-4 border border-dark')
-    mBox5.setAttribute('class','p-2 bg-danger flex-fill p-4 border border-dark')
-    mBox6.setAttribute('class','p-2 bg-danger flex-fill p-4 border border-dark')
-    mBox7.setAttribute('class','p-2 bg-danger flex-fill p-4 border border-dark')
-    mBox8.setAttribute('class','p-2 bg-danger flex-fill p-4 border border-dark')
-    mBox0.setAttribute('id','box0')
-    mBox1.setAttribute('id','box1')
-    mBox2.setAttribute('id','box2')
-    mBox3.setAttribute('id','box3')
-    mBox4.setAttribute('id','box4')
-    mBox5.setAttribute('id','box5')
-    mBox6.setAttribute('id','box6')
-    mBox7.setAttribute('id','box7')
-    mBox8.setAttribute('id','box8')
-    mTurnTrack.setAttribute('id','turnTrack')
-    const app = document.getElementById('app')
-    app.insertAdjacentElement("afterbegin", mBoard)
-    const board = document.getElementById('board')
-    board.insertAdjacentElement("afterbegin", mRow1)
-    board.insertAdjacentElement("afterbegin", mRow2)
-    board.insertAdjacentElement("afterbegin", mRow3)
-    const row1 = document.getElementById('row1')
-    const row2 = document.getElementById('row2')
-    const row3 = document.getElementById('row3')
-    row1.insertAdjacentElement("afterbegin", mBox8)
-    row1.insertAdjacentElement("afterbegin", mBox7)
-    row1.insertAdjacentElement("afterbegin", mBox6)
-    row2.insertAdjacentElement("afterbegin", mBox5)
-    row2.insertAdjacentElement("afterbegin", mBox4)
-    row2.insertAdjacentElement("afterbegin", mBox3)
-    row3.insertAdjacentElement("afterbegin", mBox2)
-    row3.insertAdjacentElement("afterbegin", mBox1)
-    row3.insertAdjacentElement("afterbegin", mBox0)
-    board.insertAdjacentElement('beforeend', mTurnTrack)
-}
-const box0 = document.getElementById('box0')
-const box1 = document.getElementById('box1')
-const box2 = document.getElementById('box2')
-const box3 = document.getElementById('box3')
-const box4 = document.getElementById('box4')
-const box5 = document.getElementById('box5')
-const box6 = document.getElementById('box6')
-const box7 = document.getElementById('box7')
-const box8 = document.getElementById('box8')
-const turnTrack = document.getElementById('turnTrack')
+//this function builds the tic tac toe board
 
+function buildBoard2() {
+    createEl(app, 'div', '', 'container border', 'board')
+    createEl(board, 'div', '', 'd-flex flex-row bg-dark flex-fill text-center p-1 w-auto h-auto', 'row1')
+    createEl(board, 'div', '', 'd-flex flex-row bg-dark flex-fill text-center p-1 w-auto h-auto', 'row2')
+    createEl(board, 'div', '', 'd-flex flex-row bg-dark flex-fill text-center p-1 w-auto h-auto', 'row3')
+    createEl(row1, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box0' )
+    createEl(row1, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box1' )
+    createEl(row1, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box2' )
+    createEl(row2, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box3' )
+    createEl(row2, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box4' )
+    createEl(row2, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box5' )
+    createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box6' )
+    createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box7' )
+    createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box8' )
+    createEl(board, 'div', '', 'text-warning', 'turnTrack')
+}
+
+// runs when you click a box, will change the text content to your teams symbol, then removes the event listener
 function test() {
     if (playerturn === 'x') {
         this.textContent = 'x'
@@ -121,6 +70,7 @@ function test() {
     }
 }
 
+//this function is ran when the game ends. it shows the reset button
 function showReset() {
     const mResetB = document.createElement('input')
     mResetB.setAttribute('id','rBtn')
@@ -130,6 +80,8 @@ function showReset() {
     const rBtn = document.getElementById('rBtn')
     rBtn.addEventListener('click', reset)
 }
+
+//this function resets the board
 
 function reset() {
     playerturn = 'x'
@@ -166,6 +118,8 @@ function reset() {
     box8.addEventListener('click', test)
 }
 
+//will display whos turn it is
+
 function isUp() {
     if (playerturn === 'x') {
         turnTrack.textContent = playerturn + ' is up'
@@ -175,7 +129,7 @@ function isUp() {
     }
 }
 
-
+//adds all the event listeners for the squares
 box0.addEventListener('click', box0s)
 box0.addEventListener('click', test)
 box1.addEventListener('click', box1s)
@@ -194,7 +148,6 @@ box7.addEventListener('click', box7s)
 box7.addEventListener('click', test)
 box8.addEventListener('click', box8s)
 box8.addEventListener('click', test)
-
 
 function setScore() {
     box0s()
@@ -253,6 +206,8 @@ function gameWonO() {
     showReset()
 }
 
+//if array = win run game won
+
 function windConds () {
     if (score[0] === 'x' && score[1] === 'x' && score[2] === 'x') {
         gameWonX()
@@ -295,6 +250,8 @@ function windConds () {
         gameWonO()
     }
 }
+
+//these functions are ran on event listeners and will change the score in the score array
 
 function box0s() {
     if (playerturn === 'x') {
@@ -390,3 +347,15 @@ function noClick() {
         this.removeEventListener('click', box7s)
         this.removeEventListener('click', box8s)
 }
+function createEl(parentEl, tag, text, className, idName,) {
+    let element = document.createElement(tag)
+    element.innerText = text
+    if (className) {
+        element.setAttribute('class', className)
+    };
+    if (idName) {
+        element.setAttribute('id', idName)
+    }
+    parentEl.appendChild(element)
+}
+
