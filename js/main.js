@@ -2,7 +2,6 @@
 let playerturn = 'x';
 let score = ['e','e','e','e','e','e','e','e','e']
 const app = document.getElementById('app')
-
 //exciting isnt it?
 function init() {
     buildBoard2();
@@ -10,7 +9,6 @@ function init() {
 }
 init();
 //this function builds the tic tac toe board
-
 function createEl(parentEl, tag, text, className, idName,) {
     let element = document.createElement(tag)
     element.innerText = text
@@ -22,7 +20,6 @@ function createEl(parentEl, tag, text, className, idName,) {
     }
     parentEl.appendChild(element)
 }
-
 function buildBoard2() {
     createEl(app, 'div', '', 'container border', 'board')
     createEl(board, 'div', '', 'd-flex flex-row bg-dark flex-fill text-center p-1 w-auto h-auto', 'row1')
@@ -39,7 +36,6 @@ function buildBoard2() {
     createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box8' )
     createEl(board, 'div', '', 'text-warning', 'turnTrack')
 }
-
 // runs when you click a box, will change the text content to your teams symbol, then removes the event listener
 function test() {
     if (playerturn === 'x') {
@@ -76,7 +72,6 @@ function test() {
         return playerturn
     }
 }
-
 //this function is ran when the game ends. it shows the reset button
 function showReset() {
     const mResetB = document.createElement('input')
@@ -87,9 +82,7 @@ function showReset() {
     const rBtn = document.getElementById('rBtn')
     rBtn.addEventListener('click', reset)
 }
-
 //this function resets the board
-
 function reset() {
     playerturn = 'x'
     box0.textContent = ''
@@ -123,9 +116,7 @@ function reset() {
     box8.addEventListener('click', box8s)
     box8.addEventListener('click', test)
 }
-
 //will display whos turn it is
-
 function isUp() {
     if (playerturn === 'x') {
         turnTrack.textContent = playerturn + ' is up'
@@ -134,7 +125,6 @@ function isUp() {
         turnTrack.textContent = playerturn + ' is up'
     }
 }
-
 //adds all the event listeners for the squares
 box0.addEventListener('click', box0s)
 box0.addEventListener('click', test)
@@ -154,7 +144,6 @@ box7.addEventListener('click', box7s)
 box7.addEventListener('click', test)
 box8.addEventListener('click', box8s)
 box8.addEventListener('click', test)
-
 function setScore() {
     box0s()
     box1s()
@@ -166,7 +155,6 @@ function setScore() {
     box7s()
     box8s()
 }
-
 function gameWonX() {
     turnTrack.textContent = 'GAMEOVER X WINS'
     box0.addEventListener('click', box0s)
@@ -189,7 +177,6 @@ function gameWonX() {
     box8.removeEventListener('click', test)
     showReset()
 }
-
 function gameWonO() {
     turnTrack.textContent = 'GAMEOVER O WINS'
     box0.removeEventListener('click', test)
@@ -211,9 +198,7 @@ function gameWonO() {
     box8.removeEventListener('click', test)
     showReset()
 }
-
 //if array = win run game won
-
 function windConds () {
     if (score[0] === 'x' && score[1] === 'x' && score[2] === 'x') {
         gameWonX()
@@ -256,9 +241,7 @@ function windConds () {
         gameWonO()
     }
 }
-
 //these functions are ran on event listeners and will change the score in the score array
-
 function box0s() {
     if (playerturn === 'x') {
         score[0] = 'x'
@@ -341,16 +324,5 @@ function box8s() {
         return score
     }
 }
-function noClick() {
-        this.removeEventListener('click', test)
-        this.removeEventListener('click', box0s)
-        this.removeEventListener('click', box1s)
-        this.removeEventListener('click', box2s)
-        this.removeEventListener('click', box3s)
-        this.removeEventListener('click', box4s)
-        this.removeEventListener('click', box5s)
-        this.removeEventListener('click', box6s)
-        this.removeEventListener('click', box7s)
-        this.removeEventListener('click', box8s)
-}
+
 
