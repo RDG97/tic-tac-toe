@@ -5,16 +5,23 @@ const app = document.getElementById('app')
 
 //exciting isnt it?
 function init() {
-    buildBoard2();   
+    buildBoard2();
+    isUp()   
 }
-
 init();
-// i used a settimeout so that this would run after the board is built
-setTimeout(() => {
-    isUp()
-}, 100);
-
 //this function builds the tic tac toe board
+
+function createEl(parentEl, tag, text, className, idName,) {
+    let element = document.createElement(tag)
+    element.innerText = text
+    if (className) {
+        element.setAttribute('class', className)
+    };
+    if (idName) {
+        element.setAttribute('id', idName)
+    }
+    parentEl.appendChild(element)
+}
 
 function buildBoard2() {
     createEl(app, 'div', '', 'container border', 'board')
@@ -97,7 +104,6 @@ function reset() {
     score = ['e','e','e','e','e','e','e','e','e']
     rBtn.style.display = 'none';
     turnTrack.textContent = playerturn + ' is up'
-    
     box0.addEventListener('click', box0s)
     box0.addEventListener('click', test)
     box1.addEventListener('click', box1s)
@@ -346,16 +352,5 @@ function noClick() {
         this.removeEventListener('click', box6s)
         this.removeEventListener('click', box7s)
         this.removeEventListener('click', box8s)
-}
-function createEl(parentEl, tag, text, className, idName,) {
-    let element = document.createElement(tag)
-    element.innerText = text
-    if (className) {
-        element.setAttribute('class', className)
-    };
-    if (idName) {
-        element.setAttribute('id', idName)
-    }
-    parentEl.appendChild(element)
 }
 
