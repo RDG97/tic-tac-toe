@@ -26,20 +26,20 @@ function createEl(parentEl, tag, text, className, idName,) {
 }
 
 function buildBoard2() {
-    createEl(app, 'div', '', 'container border', 'board')
+    createEl(app, 'div', '', 'container', 'board')
     createEl(board, 'div', '', 'd-flex flex-row bg-dark flex-fill text-center p-1 w-auto h-auto', 'row1')
     createEl(board, 'div', '', 'd-flex flex-row bg-dark flex-fill text-center p-1 w-auto h-auto', 'row2')
     createEl(board, 'div', '', 'd-flex flex-row bg-dark flex-fill text-center p-1 w-auto h-auto', 'row3')
-    createEl(row1, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box0' )
-    createEl(row1, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box1' )
-    createEl(row1, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box2' )
-    createEl(row2, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box3' )
-    createEl(row2, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box4' )
-    createEl(row2, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box5' )
-    createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box6' )
-    createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box7' )
-    createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy', 'box8' )
-    createEl(board, 'div', '', 'text-warning', 'turnTrack')
+    createEl(row1, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box0' )
+    createEl(row1, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box1' )
+    createEl(row1, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box2' )
+    createEl(row2, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box3' )
+    createEl(row2, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box4' )
+    createEl(row2, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box5' )
+    createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box6' )
+    createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box7' )
+    createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box8' )
+    createEl(board, 'div', '', 'text-warning h1', 'turnTrack')
 }
 
 // runs when you click a box, will change the text content to your teams symbol, then removes the event listener
