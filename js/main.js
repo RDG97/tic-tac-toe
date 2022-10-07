@@ -5,16 +5,25 @@ const app = document.getElementById('app')
 
 //exciting isnt it?
 function init() {
-    buildBoard2();   
-}
-
-init();
-// i used a settimeout so that this would run after the board is built
-setTimeout(() => {
+    buildBoard2();
     isUp()
-}, 100);
+    showReset()
+}
+init();
 
 //this function builds the tic tac toe board
+
+function createEl(parentEl, tag, text, className, idName,) {
+    let element = document.createElement(tag)
+    element.innerText = text
+    if (className) {
+        element.setAttribute('class', className)
+    };
+    if (idName) {
+        element.setAttribute('id', idName)
+    }
+    parentEl.appendChild(element)
+}
 
 function buildBoard2() {
     createEl(app, 'div', '', 'container border', 'board')
@@ -79,10 +88,10 @@ function showReset() {
     board.insertAdjacentElement('beforeend', mResetB)
     const rBtn = document.getElementById('rBtn')
     rBtn.addEventListener('click', reset)
+    rBtn.style.display = "none";
 }
 
 //this function resets the board
-
 function reset() {
     playerturn = 'x'
     box0.textContent = ''
@@ -97,7 +106,6 @@ function reset() {
     score = ['e','e','e','e','e','e','e','e','e']
     rBtn.style.display = 'none';
     turnTrack.textContent = playerturn + ' is up'
-    
     box0.addEventListener('click', box0s)
     box0.addEventListener('click', test)
     box1.addEventListener('click', box1s)
@@ -149,20 +157,8 @@ box7.addEventListener('click', test)
 box8.addEventListener('click', box8s)
 box8.addEventListener('click', test)
 
-function setScore() {
-    box0s()
-    box1s()
-    box2s()
-    box3s()
-    box4s()
-    box5s()
-    box6s()
-    box7s()
-    box8s()
-}
-
 function gameWonX() {
-    turnTrack.textContent = 'GAMEOVER X WINS'
+    turnTrack.textContent = 'GAME OVER X WINS'
     box0.addEventListener('click', box0s)
     box0.removeEventListener('click', test)
     box1.removeEventListener('click', box1s)
@@ -181,11 +177,11 @@ function gameWonX() {
     box7.removeEventListener('click', test)
     box8.removeEventListener('click', box8s)
     box8.removeEventListener('click', test)
-    showReset()
+    rBtn.style.display = "inline";
 }
 
 function gameWonO() {
-    turnTrack.textContent = 'GAMEOVER O WINS'
+    turnTrack.textContent = 'GAME OVER O WINS'
     box0.removeEventListener('click', test)
     box1.removeEventListener('click', box1s)
     box1.removeEventListener('click', test)
@@ -203,7 +199,7 @@ function gameWonO() {
     box7.removeEventListener('click', test)
     box8.removeEventListener('click', box8s)
     box8.removeEventListener('click', test)
-    showReset()
+    rBtn.style.display = "inline";
 }
 
 //if array = win run game won
@@ -335,27 +331,6 @@ function box8s() {
         return score
     }
 }
-function noClick() {
-        this.removeEventListener('click', test)
-        this.removeEventListener('click', box0s)
-        this.removeEventListener('click', box1s)
-        this.removeEventListener('click', box2s)
-        this.removeEventListener('click', box3s)
-        this.removeEventListener('click', box4s)
-        this.removeEventListener('click', box5s)
-        this.removeEventListener('click', box6s)
-        this.removeEventListener('click', box7s)
-        this.removeEventListener('click', box8s)
-}
-function createEl(parentEl, tag, text, className, idName,) {
-    let element = document.createElement(tag)
-    element.innerText = text
-    if (className) {
-        element.setAttribute('class', className)
-    };
-    if (idName) {
-        element.setAttribute('id', idName)
-    }
-    parentEl.appendChild(element)
-}
+
+
 
