@@ -2,6 +2,8 @@
 let playerturn = 'x';
 let score = ['e','e','e','e','e','e','e','e','e']
 const app = document.getElementById('app')
+let xWins = 0;
+let oWins = 0;
 
 //exciting isnt it?
 function init() {
@@ -41,6 +43,12 @@ function buildBoard2() {
     createEl(row3, 'div', '', 'p-2 bg-light flex-fill p-4 border border-dark boxxy h3', 'box8' )
     createEl(board, 'div', '', 'text-warning h1', 'turnTrack')
 }
+
+
+
+
+
+
 
 // runs when you click a box, will change the text content to your teams symbol, then removes the event listener
 function test() {
@@ -105,7 +113,7 @@ function reset() {
     box8.textContent = ''
     score = ['e','e','e','e','e','e','e','e','e']
     rBtn.style.display = 'none';
-    turnTrack.textContent = playerturn + ' is up'
+    turnTrack.innerHTML =  playerturn + ' is up <br> X wins=' + xWins + ' <br>O wins =' + oWins
     box0.addEventListener('click', box0s)
     box0.addEventListener('click', test)
     box1.addEventListener('click', box1s)
@@ -130,10 +138,10 @@ function reset() {
 
 function isUp() {
     if (playerturn === 'x') {
-        turnTrack.textContent = playerturn + ' is up'
+        turnTrack.innerHTML =  playerturn + ' is up <br> X wins=' + xWins + ' <br>O wins =' + oWins
 
     } else if (playerturn === 'o') {
-        turnTrack.textContent = playerturn + ' is up'
+        turnTrack.innerHTML =  playerturn + ' is up <br> X wins=' + xWins + ' <br>O wins =' + oWins
     }
 }
 
@@ -178,6 +186,7 @@ function gameWonX() {
     box8.removeEventListener('click', box8s)
     box8.removeEventListener('click', test)
     rBtn.style.display = "inline";
+    xWins++
 }
 
 function gameWonO() {
@@ -200,6 +209,7 @@ function gameWonO() {
     box8.removeEventListener('click', box8s)
     box8.removeEventListener('click', test)
     rBtn.style.display = "inline";
+    oWins++
 }
 
 //if array = win run game won
